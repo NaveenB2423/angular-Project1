@@ -1,0 +1,43 @@
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col" style="padding-top:10%;padding-left:5%;">
+      <form style="padding:5%; width:290px;height:280px;border: 1px solid gray; background-color: beige; border-radius: 5px;">
+        <label for="productId" class="form-label" style="margin-top:2%;">Product Id</label>
+        <input type="text" id="productId" class="form-control" [(ngModel)]="Testng.productId" [ngModelOptions]="{standalone: true}">
+        <label for="branchId" class="form-label" style="margin-top:5%">Branch Id</label>
+        <input type="text" id="branchId" class="form-control" [(ngModel)]="Testng.branchId" [ngModelOptions]="{standalone: true}">
+        <div style="display:flex"><input class="form-check-input mt-2" type="checkbox" value="" aria-label="Checkbox for following text input"><p style="font-size:14px;margin-top:5px;">Is_for_repeat_set_combo</p></div>
+        <button class="btn btn-primary" type="button" (click)="posttest()">Submit</button>
+      </form>
+    </div>
+
+
+    <div class="col" style="padding-top:10%;">
+      <h3>Available Products:</h3>
+      <ul style="color: black;">
+        <li *ngFor="let product of products">
+          Category: {{ product.mst_cat_name }}<br />
+          SubCategory:
+          <br><input type="checkbox" (change)="toggleSelectedProduct(product.product_details[0]?.mst_product_name)"> {{ product.product_details[0]?.mst_product_name }}
+          <br><input type="checkbox" (change)="toggleSelectedProduct(product.product_details[1]?.mst_product_name)"> {{ product.product_details[1]?.mst_product_name }}
+          <br><input type="checkbox" (change)="toggleSelectedProduct(product.product_details[2]?.mst_product_name)"> {{ product.product_details[2]?.mst_product_name }}
+        </li>
+      </ul>
+    </div>
+
+    <div class="col" style="padding-top:10%;">
+      <div>
+        <h3>Selected Products:</h3>
+        <ul>
+          <li *ngFor="let product of selectedProducts" style="color: black;">{{ product }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
